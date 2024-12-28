@@ -103,4 +103,12 @@ export class ConfigService {
     getConfig(): Readonly<AppConfig> {
         return this.config;
     }
+
+    /**
+     * Public method to get a specific configuration value
+     * @param key - The configuration key to retrieve
+     */
+    get<T = any>(key: keyof AppConfig): T {
+        return this.config[key] as T;
+    }
 }
